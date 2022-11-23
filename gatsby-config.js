@@ -112,42 +112,14 @@ module.exports = {
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
-                name: `gatsby-starter-default`,
-                short_name: `starter`,
+                name: `bronze-age-index`,
+                short_name: `bai`,
                 start_url: `/`,
                 background_color: `#663399`,
                 display: `minimal-ui`,
                 icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
             },
         },
-        {
-            resolve: "gatsby-plugin-sitemap",
-            options: {
-                query: `
-        {
-          allSitePage {
-            nodes {
-              path
-            }
-          }
-         
-        }
-      `,
-                resolveSiteUrl: () => siteUrl,
-                resolvePages: ({
-                                   allSitePage: {nodes: allPages},
-                               }) => {
 
-                    return allPages.map(page => {
-                        return {...page}
-                    })
-                },
-                serialize: ({path}) => {
-                    return {
-                        url: path,
-                    }
-                },
-            },
-        },
     ],
 }
