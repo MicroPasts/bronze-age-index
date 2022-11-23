@@ -72,7 +72,7 @@ dfn {
 }
 h1 {
   margin: 0;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   padding: 0;
   line-height: var(--line-height-dense);
   letter-spacing: -0.01em;
@@ -153,6 +153,8 @@ th {
 }
 li {
   margin-bottom: calc(var(--space-4) / 2);
+  list-style: none;
+  margin-left: -22px;
 }
 ol li,
 ul li {
@@ -160,9 +162,9 @@ ul li {
 }
 li > ol,
 li > ul {
-  margin-bottom: calc(var(--space-4) / 2);
+  margin-bottom: calc(var(--space-4) / 4);
   margin-left: var(--space-4);
-  margin-top: calc(var(--space-4) / 2);
+  margin-top: calc(var(--space-4) / 4);
 }
 blockquote *:last-child {
   margin-bottom: 0;
@@ -177,7 +179,7 @@ li > p {
   margin-bottom: calc(var(--space-4) / 2);
 }
 p {
-  max-width: 680px;
+  max-width: 100% ;
 }
 code {
   font-size: 0.875rem;

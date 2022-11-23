@@ -6,46 +6,51 @@
  */
 
 import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import {useStaticQuery, graphql} from "gatsby"
 
-import Header from "./header"
-import "./layout.css"
+import Header from "./structure/header"
+import NavBar from "./structure/nav";
+import Footer from "./structure/footer"
+import Logos from "../components/structure/logos";
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
+const Layout = ({children}) => {
+    const data = useStaticQuery(graphql`
+        query SiteTitleQuery {
+            site {
+                siteMetadata {
+                    title
+                    menuLinks {
+                        name
+                        link
+                        id
+                    }
+                    aboutLinks {
+                        name
+                        link
+                        id
+                    }
+                    logos {
+                        institution
+                        url
+                        id
+                        image
+                    }
+                }
+            }
         }
-      }
-    }
-  `)
+    `)
 
-  return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: `var(--size-content)`,
-          padding: `var(--size-gutter)`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `var(--space-5)`,
-            fontSize: `var(--font-sm)`,
-          }}
-        >
-          © {new Date().getFullYear()} &middot; Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
-    </>
-  )
+    return (
+        <>
+            <Header siteTitle={data.site.siteMetadata?.title || `Title`}/>
+            <NavBar menuLinks={data.site.siteMetadata.menuLinks} siteTitle={data.site.siteMetadata.title}/>
+
+            <main>{children}</main>
+                <Logos logos={data.site.siteMetadata.logos}/>
+                <Footer aboutLinks={data.site.siteMetadata.aboutLinks}/>
+        </>
+    )
 }
+
 
 export default Layout
