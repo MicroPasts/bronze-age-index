@@ -9,7 +9,7 @@ const TeamCard = ({post}) => (
             <Card.Body className="bg-white border-0 rounded-0">
                 {post.frontmatter.image !== undefined && <CardImg className="card-img-top rounded-circle"
                          as={GatsbyImage} image={getImage(post.frontmatter.image)} alt={"Object image"}/>}
-                {post.frontmatter.image === null && <Card.Img src={'/img.png'} alt="Card image" className={"rounded-circle"} />}
+                {post.frontmatter.image === null && <Card.Img src={'/img.png'} alt="Card image" className={"rounded-circle img-fluid p-3"} />}
                 <div className="h-100 mt-2" style={{minHeight: 70}}>
                     <Link to={post.frontmatter.slug} className="stretched-link stretched-link__blog_post">
                         <h1 className="lead text-black fw-bold">{post.frontmatter.title} {post.frontmatter.name}</h1>

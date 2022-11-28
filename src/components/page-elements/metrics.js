@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const Metrics = ({object}) => (
     <>
-        <ul>
+        <ul className={"list-unstyled"}>
             {object.materialTerm && <li>Made from: {object.materialTerm}</li>}
             {object.quantity && <li>Quantity: {object.quantity}</li>}
             {object.edge && <li>Edge: {object.edge}</li>}

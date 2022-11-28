@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 const PortableAntiquities = ({object}) => (
     <>
         {object.PASID &&
-            <p><a href={`https://finds.org.uk/database/artefacts/record/id/${object.PASID}`}>View this on the Portable
-                Antiquities Scheme Database</a></p>}
+            <a className={"btn btn-dark my-2 text-white"} href={`https://finds.org.uk/database/artefacts/record/id/${object.PASID}`}>View this on the Portable
+                Antiquities Scheme's Database</a>}
     </>
 )
 

@@ -22,7 +22,7 @@ body {
     color: lightslategray;
 }
 
-.post-body a, .pagination a {
+.pagination a {
     display: inline-block;
     position: relative;
     text-decoration: none;
@@ -30,7 +30,7 @@ body {
     z-index: 1;
 }
 
-.post-body a::after, .pagination a::after {
+.pagination a::after {
     content: '';
     position: absolute;
     left: 0;
@@ -42,9 +42,7 @@ body {
     transition: height .25s cubic-bezier(.6,0,.4,1);
 }
 
-.post-body  a:hover::after {
-    height: .2em;
-}
+
 .post-body  p {
     width: 100%;
 }
