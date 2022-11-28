@@ -1,10 +1,11 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "bronze-age-index",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A website to document the British Bronze Age",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Daniel Pett",
   "dependencies": {
+    "@fontsource/public-sans": "^4.5.10",
     "@fortawesome/free-brands-svg-icons": "^6.2.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@popperjs/core": "^2.11.6",
@@ -16,8 +17,11 @@
     "gatsby-plugin-manifest": "^5.0.0",
     "gatsby-plugin-sharp": "^5.0.0",
     "gatsby-plugin-sitemap": "^6.1.0",
+    "gatsby-plugin-twitter": "^5.2.0",
+    "gatsby-remark-images": "^7.2.0",
     "gatsby-source-filesystem": "^5.0.0",
     "gatsby-transformer-csv": "^5.0.0",
+    "gatsby-transformer-remark": "^6.2.0",
     "gatsby-transformer-sharp": "^5.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
@@ -31,7 +35,9 @@
     "prettier": "^2.7.1"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "Archaeology",
+    "Bronze Age"
   ],
   "license": "0BSD",
   "scripts": {

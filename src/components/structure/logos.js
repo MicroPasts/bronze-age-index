@@ -5,7 +5,7 @@ import PropTypes from "prop-types"
 const Logos = ({ logos }) => {
 
     return (
-        <Container fluid className={"bg-pastel p-4 container-fluid text-black"}>
+        <Container fluid className={"bg-white p-4 container-fluid text-black"}>
             <Col md={10} className={"mx-auto"}>
                 <Row className={"d-flex flex-wrap justify-content-center"}>
                     {logos.map(logo => (

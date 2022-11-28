@@ -28,7 +28,7 @@ const Footer = ({aboutLinks}) => {
                             <p className="text-white">
                                 Words: <a href={'https://creativecommons.org/licenses/by/4.0/'}>CC-BY</a><br/>
                                 Images: <a href={'https://creativecommons.org/licenses/by/4.0/'}>CC-BY</a><br/>
-                                Code: <a href={'https://opensource.org/licenses/MIT'}>MIT</a><br/>
+                                Code: <a href={'https://opensource.org/licenses/0BSD'}>OBSD</a><br/>
                                 &copy; {new Date().getFullYear()}
                             </p>
                         </Col>

@@ -6,7 +6,6 @@ const NavBar = ({siteTitle, menuLinks}) => (
 
     <header style={{
         background: "#112d5f",
-        marginBottom: "3rem",
     }}
     >
 

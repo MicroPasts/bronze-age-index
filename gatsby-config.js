@@ -35,31 +35,30 @@ module.exports = {
         ],
         aboutLinks: [
             {
-                name: 'MicroPasts',
-                link: 'https://crowdsourced.micropasts.org/',
+                name: 'Meet the Team',
+                link: '/team',
                 id: 1
-            },
-            {
-                name: 'British Museum',
-                link: 'https://britishmuseum.org/',
+            },{
+                name: 'About the Project',
+                link: '/background',
                 id: 2
             },
             {
-                name: 'Portable Antiquities Scheme',
-                link: 'https://finds.org.uk/',
-                id: 3
-            },
-            {
-                name: 'Institute of Archaeology',
-                link: 'https://archaeology.ucl.ac.uk/',
-                id: 3
+                name: 'History of the index',
+                link: '/history-of-the-index',
+                id:3
+            },{
+                name: 'How was this created?',
+                link: '/how-was-this-created',
+                id: 4
             }
+
         ],
         logos: [
             {
                 institution: 'AHRC',
                 url: 'https://ahrc.ukri.org/',
-                id: 3,
+                id: 4,
                 image: '/logos/AHRC.jpg'
             },
             {
@@ -106,7 +105,46 @@ module.exports = {
                 name: `images`,
                 path: `${__dirname}/src/images`,
             },
+            __key: "images"
         },
+        {
+            resolve: 'gatsby-source-filesystem',
+            options: {
+                "name": "team",
+                "path": "./src/team/"
+            },
+            __key: "team"
+        },
+        {
+            resolve: 'gatsby-source-filesystem',
+            options: {
+                "name": "content",
+                "path": "./src/markdown/"
+            },
+            __key: "content"
+        },
+        {
+            resolve: `gatsby-transformer-remark`,
+            options: {
+                plugins: [
+
+                    {
+                        resolve: `gatsby-remark-images`,
+                        options: {
+                            maxWidth: 2000,
+                            withWebp: true,
+                            showCaptions: true,
+                            quality: 90,
+                            linkImagesToOriginal: false,
+                            backgroundColor: `transparent`,
+                            loading: `lazy`,
+                        },
+                    },
+
+                ],
+            },
+        },
+        `gatsby-plugin-twitter`,
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
         {
@@ -117,7 +155,7 @@ module.exports = {
                 start_url: `/`,
                 background_color: `#663399`,
                 display: `minimal-ui`,
-                icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+                icon: `src/images/gatsby-icon.png`,
             },
         },
 

@@ -12,7 +12,7 @@ const PostCard = ({post}) => (
                          as={GatsbyImage} image={getImage(post.thumbnail)} alt={"Object image"}/>}
                 {post.thumbnail === null && <Card.Img src={'/img.png'} alt="Card image" />}
                 <div className="h-100" style={{minHeight: 70}}>
-                    <Link to={'/bronze-age-index/records/' + post.objectID} className="stretched-link stretched-link__blog_post">
+                    <Link to={'/records/' + post.objectID} className="stretched-link stretched-link__blog_post">
                         <h1 className="lead text-black fw-bold">{post.objectType}</h1>
                     </Link>
                         <h2 className="lead">{post.objectID.toUpperCase()}</h2>

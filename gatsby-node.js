@@ -5,9 +5,39 @@ exports.createPages = ({graphql, actions}) => {
     const {createPage} = actions
     const objectTemplate = path.resolve(`src/templates/object.js`)
     const indexTemplate = path.resolve(`src/templates/bronze-age.js`)
+    const profileTemplate = require.resolve(`./src/templates/profile.js`)
+    const contentTemplate = require.resolve(`./src/templates/content.js`)
 
     return graphql(
         `{
+         team: allMarkdownRemark(
+        filter: {frontmatter: {section: {eq: "team"}}}
+      )  {
+        edges {
+          node {
+            id
+            frontmatter {
+              name
+              slug
+            }
+          }
+        }
+      },
+      
+      posts: allMarkdownRemark(
+        filter: {frontmatter: {section: {eq: "content"}}}
+      )  {
+        edges {
+          node {
+            id
+            frontmatter {
+              title
+              slug
+              author
+            }
+          }
+        }
+      },
           allObjects: allSplitCsv  {
             edges {
                  node {
@@ -104,11 +134,34 @@ exports.createPages = ({graphql, actions}) => {
         if (result.errors) {
             throw result.errors
         }
+        result.data.team.edges.forEach(({ node }) => {
+            createPage({
+                path: node.frontmatter.slug,
+                component: profileTemplate,
+                context: {
+                    slug: node.frontmatter.slug,
+                    id: node.id
+                },
+            });
+        });
+
+
+        result.data.posts.edges.forEach(({ node }) => {
+            createPage({
+                path: node.frontmatter.slug,
+                component: contentTemplate,
+                context: {
+                    slug: node.frontmatter.slug,
+                    id: node.id
+                },
+            });
+        });
+
         result.data.allObjects.edges.forEach(({ node }) => {
             const object = node
             console.log(object.objectID)
 
-            const slug = 'bronze-age-index/records/' + object.objectID + '/'
+            const slug = 'records/' + object.objectID + '/'
             createPage({
                 path: slug,
                 component: objectTemplate,
@@ -116,8 +169,7 @@ exports.createPages = ({graphql, actions}) => {
                     ...object,
                 },
             })
-
-        })
+        });
         paginate({
             createPage: createPage,
             component: indexTemplate,
@@ -125,7 +177,7 @@ exports.createPages = ({graphql, actions}) => {
             itemsPerPage: 12,
             itemsPerFirstPage: 12,
             pathPrefix: '/bronze-age-index/records'
-        })
+        });
     })
 }
 const { createRemoteFileNode } = require("gatsby-source-filesystem")

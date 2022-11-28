@@ -8,11 +8,10 @@ import Seo from "../components/structure/SEO"
 import Pagination from '../components/structure/pagination';
 
 const BronzePageTemplate = (props) => {
-    console.log(props.data.allSplitCsv)
     const Posts = props.data.allSplitCsv.edges.map(edge => <PostCard key={edge.node.id} post={edge.node}/>)
     return (
         <Layout>
-            <Container>
+            <Container className={"mt-4"}>
                 <Row>
                     <h1 className={"ml-4 mt-4"}>The Bronze Age Implement Index</h1>
 

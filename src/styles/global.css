@@ -79,9 +79,7 @@ figcaption {
 
     padding: 10px;
 }
-.post-body li {
-    list-style: square;
-}
+
 nav.pagination {
     display: flex;
     justify-content: space-between;
@@ -104,4 +102,17 @@ nav.pagination {
 }
 .bg-pale {
     background: #f5f3f0;
+}
+.text-gradient {
+    color: #2531b0;
+    background-image: -webkit-linear-gradient(0deg, #2531b0 0%, #03a9f4 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-size: 4rem;
+}
+.bg-grad {
+    background: rgb(159,205,205);
+    background: linear-gradient(0deg, rgba(159,205,205,0.8337710084033614) 0%, rgba(86,192,198,1) 100%);
 }
