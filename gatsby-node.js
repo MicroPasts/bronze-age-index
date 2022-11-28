@@ -176,7 +176,7 @@ exports.createPages = ({graphql, actions}) => {
             items: result.data.paginatedObjects.edges,
             itemsPerPage: 12,
             itemsPerFirstPage: 12,
-            pathPrefix: '/bronze-age-index/records'
+            pathPrefix: '/records'
         });
     })
 }

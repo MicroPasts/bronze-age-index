@@ -29,7 +29,7 @@ module.exports = {
             },
             {
                 name: 'The Index',
-                link: '/bronze-age-index/records/',
+                link: '/records/',
                 id: 2
             }
         ],
