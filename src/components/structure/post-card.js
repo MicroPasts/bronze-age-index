@@ -13,7 +13,7 @@ const PostCard = ({post}) => (
                 {post.thumbnail === null && <Card.Img src={'/img.png'} alt="Card image" />}
                 <div className="h-100" style={{minHeight: 70}}>
                     <Link to={'/records/' + post.objectID} className="stretched-link stretched-link__blog_post">
-                        <h1 className="lead text-black fw-bold">{post.objectType}</h1>
+                        <h1 className="lead text-black fw-bold mt-3">{post.objectType}</h1>
                     </Link>
                         <h2 className="lead">{post.objectID.toUpperCase()}</h2>
                 </div>

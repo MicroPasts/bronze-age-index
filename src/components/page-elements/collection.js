@@ -5,6 +5,7 @@ const Collection = ({object}) => (
     <>
         {object.collection && <p><strong>Provenance notes:</strong> {object.collection}</p>}
         {object.museumCollection && <p><strong>Holding museum:</strong> {object.museumCollection}</p>}
+        {object.museumID && <p><strong>Museum Accession ID:</strong> {object.museumID}</p>}
     </>
 )
 

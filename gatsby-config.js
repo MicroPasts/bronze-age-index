@@ -31,6 +31,11 @@ module.exports = {
                 name: 'The Index',
                 link: '/records/',
                 id: 2
+            },
+            {
+                name: 'Mapping discovery',
+                link: 'https://mapping-the-bronze-age.micropasts.org',
+                id: 3
             }
         ],
         aboutLinks: [

@@ -46,6 +46,9 @@ exports.createPages = ({graphql, actions}) => {
                     PASID
                     broadperiod
                     objectType
+                    classification
+                    completeness
+                    periodo
                     description
                     fourFigureLat
                     fourFigureLon
@@ -58,7 +61,6 @@ exports.createPages = ({graphql, actions}) => {
                     datefound1(formatString: "MMMM DD, YYYY")
                     datefound2(formatString: "MMMM DD, YYYY")
                     subsequentActionTerm
-                    identifier
                     recorder
                     gridSource
                     quantity 
@@ -67,6 +69,7 @@ exports.createPages = ({graphql, actions}) => {
                     diameter
                     edge
                     thickness
+                    context
                     parish
                     county
                     district
@@ -93,6 +96,9 @@ exports.createPages = ({graphql, actions}) => {
                     dateDiscoveryYear
                     remarks
                     museumCollection
+                    museumID
+                    collectionIdentifier
+                    stolenStatus
                     thumbnail {
                         childImageSharp {
                             gatsbyImageData(
@@ -180,6 +186,9 @@ exports.createPages = ({graphql, actions}) => {
         });
     })
 }
+
+
+
 const { createRemoteFileNode } = require("gatsby-source-filesystem")
 
 
@@ -188,21 +197,25 @@ exports.onCreateNode = async (gatsbyUtils) => {
     const { createNodeField, createNode } = actions;
 
     if (node.internal.type === `SplitCsv` &&  node.thumbnail !== '') {
-        const imageFile = await createRemoteFileNode({
-            url: node.thumbnail,
-            parentNodeId: node.id,
-            getCache,
-            createNode,
-            createNodeId,
-        });
+        try {
+            const imageFile = await createRemoteFileNode({
+                url: node.thumbnail,
+                parentNodeId: node.id,
+                getCache,
+                createNode,
+                createNodeId,
+            });
 
-        createNodeField({
-            node,
-            name: `thumbnailFileID`,
-            value: imageFile.id,
-        });
+            createNodeField({
+                node,
+                name: `thumbnailFileID`,
+                value: imageFile.id,
+            });
 
-        reporter.info(`Created image File Node for ${node.thumbnail} thumbnail url`);
+            reporter.info(`Created image File Node for ${node.thumbnail} thumbnail url`);
+        } catch (e) {
+            reporter.error(`Error creating image File Node for ${node.thumbnail} thumbnail url`, e);
+        }
     }
 };
 

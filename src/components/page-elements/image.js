@@ -8,7 +8,7 @@ const Image = ({object}) => (
             <Row className={"my-2"}><Col md={12}><img src={object.imageURL} alt={object.objectType}
                                                       className={"img-fluid"}/></Col></Row>}
         {object.flickrURL &&
-            <Row className={"my-2"}><Col md={12}><a href={object.flickrURL} className={"btn-dark my-1"}>View and
+            <Row className={"my-2"}><Col md={12}><a href={object.flickrURL} className={"btn-dark btn my-1 text-white rounded-0"}>View and
                 download this via Flickr</a></Col></Row>}
 
     </>

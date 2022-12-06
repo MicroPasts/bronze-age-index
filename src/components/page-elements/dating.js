@@ -9,10 +9,10 @@ const Dating = ({object}) => (
 )
 
 Dating.propTypes = {
-dating: PropTypes.array.isRequired,
+    dating: PropTypes.array.isRequired,
 }
 Dating.defaultProps = {
-dating: [],
+    dating: [],
 }
 
 export default Dating

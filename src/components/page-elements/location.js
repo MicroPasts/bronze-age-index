@@ -12,9 +12,9 @@ const Location = ({object}) => (
             {object.parish && <li>Parish: {object.parish}</li>}
             {object.knownas && <li>Known as: {object.knownas}</li>}
         </ul>
-        {object.site && <p>BAI index card site: {object.site}</p>}
+        {object.site && <p>BAI index card site transcribed as: {object.site}</p>}
         {object.gridRef && <p>Grid Reference: {object.gridRef}</p>}
-        {object.toSearch && <p>MicroPasts: {object.toSearch}</p>}
+        {object.toSearch && <p>MicroPasts contributors searched for: {object.toSearch}</p>}
     </>
 );
 
