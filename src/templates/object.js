@@ -16,6 +16,7 @@ import Discovery from "../components/page-elements/discovery";
 import Subsequent from "../components/page-elements/subsequent";
 import Metrics from "../components/page-elements/metrics";
 import Who from "../components/page-elements/who";
+import DiscoveryContexts from "../components/page-elements/discovery-contexts";
 
 const Object = props => {
     const {
@@ -27,9 +28,7 @@ const Object = props => {
         <>
             <Layout>
                 <Seo title={'An object record for ' + object.objectID}/>
-
                 <Container className="mt-3 mb-2 post-body">
-
                     <ObjectTitle object={object}/>
                     <Collection object={object}/>
                     <Dating object={object}/>
@@ -39,23 +38,18 @@ const Object = props => {
                     <Descriptive object={object}/>
                     <Location object={object}/>
                 </Container>
-
                 {!isSSR && object.fourFigureLat && (
                     <Map geo_lat={object.fourFigureLat} geo_lon={object.fourFigureLon}/>
                 )}
-
-
                 <Container fluid className="py-3 bg-pale">
                     <Container>
-
                         <Discovery object={object}/>
                         <Subsequent object={object}/>
                         <Metrics object={object}/>
                         <Who object={object}/>
-
+                        <DiscoveryContexts object={object}/>
                     </Container>
                 </Container>
-
             </Layout>
         </>
     )

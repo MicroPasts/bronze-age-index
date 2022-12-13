@@ -5,8 +5,9 @@ import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
 import HeaderImage from "../components/elements/headerImage";
 import Journey from "../components/page-elements/journey";
-import Why from "../components/page-elements/why";
-
+import Combined from "../components/page-elements/combined";
+import Mold from "../components/page-elements/mold";
+import Peripleo from "../components/page-elements/peripleo";
 const IndexPage = () => (
     <Layout>
         <HeaderImage/>
@@ -23,7 +24,9 @@ const IndexPage = () => (
 
         </Container>
         <Journey/>
-        <Why/>
+        <Combined/>
+        <Mold/>
+        <Peripleo/>
     </Layout>
 )
 

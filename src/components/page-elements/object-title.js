@@ -13,7 +13,7 @@ const ObjectTitle = ({ object }) => (
 )
 
 ObjectTitle.propTypes = {
-    object: PropTypes.array.isRequired,
+    object: PropTypes.object.isRequired,
 }
 
 ObjectTitle.defaultProps = {

@@ -9,7 +9,7 @@ const Subsequent = ({object}) => (
 )
 
 Subsequent.propTypes = {
-    object: PropTypes.array.isRequired,
+    object: PropTypes.object.isRequired,
 }
 
 Subsequent.defaultProps = {

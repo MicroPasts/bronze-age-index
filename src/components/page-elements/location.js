@@ -19,7 +19,7 @@ const Location = ({object}) => (
 );
 
 Location.propTypes = {
-    object: PropTypes.array.isRequired,
+    object: PropTypes.object.isRequired,
 }
 
 Location.defaultProps = {

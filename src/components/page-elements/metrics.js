@@ -15,7 +15,7 @@ const Metrics = ({object}) => (
 )
 
 Metrics.propTypes = {
-    object: PropTypes.array.isRequired,
+    object: PropTypes.object.isRequired,
 
 }
 

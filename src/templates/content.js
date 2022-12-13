@@ -29,9 +29,7 @@ export default function ContentTemplate({data: {markdownRemark}}) {
 
 export const pageQuery = graphql`
     query ($id: String!) {
-        markdownRemark(id: { eq: $id }
-            , frontmatter: {section: {eq: "content"}}
-        ) {
+        markdownRemark(id: { eq: $id }, frontmatter: {section: {eq: "content"}}) {
             html
             id
             frontmatter {

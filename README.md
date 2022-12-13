@@ -1,26 +1,36 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+# The Bronze Age Implement Index
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+![The MicroPasts logo file](https://live.staticflickr.com/7452/12071276593_f35b8d8215_w.jpg)
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+This repository contains the code for the website that provides an interface for the [MicroPasts](https://micropasts.org) generated Bronze Age Implement Index
+data, combined with [Portable Antiquities Scheme](https://finds.org.uk) data. This website is a Gatsby 5 project, using CSV and markdown files to generate the
+web pages, with images sourced from [Flickr](https://flickr.com/micropasts) and the [PAS database](https://finds.org.uk). Search is provided using Mielisearch coupled with React InstantSearch.
+
+This project comes about from a partnership between the [Institute of Archaeology](https://www.ucl.ac.uk/archaeology), University College London, the [British Museum](https://britishmuseum.org) and the Portable Antiquities Scheme, 
+and it was funded by the Arts and Humanities Research Council between 2013 and 2017. 
+
+The project was led by Professor Andrew Bevan and Professor Daniel Pett. Team members included Dr Jennifer Wexler, Dr Newil Wilkin, Dr Chiara Bonnachi, Dr Adi Kienan-Schoonbaert,
+Dr Neil Wilkin, and Dr Rachel Sparks. Most of the team have moved from their host organisations now, but the project continues to be supported
+by the members using their own time and resources. Wherever possible, we have tried to acknowledge the contributions of 
+the team members in the code and the data and we have used free and open source products and services to run our work. 
+
+The code for this project was written by Daniel Pett (standing on the shoulders of giants). The [mapping interface](https://github.com/MicroPasts/mapping-the-bronze-age) for this 
+project is generated on top of the [Peripleo product](https://github.com/britishlibrary/peripleo-lanc), written by [Rainer Simon](https://rainersimon.io) and funded by the 
+British Library as part of their [Locating a National Collection project](https://www.bl.uk/projects/locating-a-national-collection).
+
+** You are encouraged to remix and reuse any of the code and data in this repository. **
 
 ## 🚀 Quick start
 
-1.  **Create a Gatsby site.**
+How to get this working on your machine. 
 
-    Use the Gatsby CLI ([install instructions](https://www.gatsbyjs.com/docs/tutorial/part-0/#gatsby-cli)) to create a new site, specifying the default starter.
+1.  **Install Node, NPM and Gatsby**
+
+    Use the Gatsby CLI ([install instructions](https://www.gatsbyjs.com/docs/tutorial/part-0/#gatsby-cli))
 
     ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
+    # create a clone of this site (you might want to exclude the gh-pages branch as it is LARGE)
+    git clone --single-branch --branch main https://github.com/MicroPasts/bronze-age-index
     ```
 
 1.  **Start developing.**
@@ -28,7 +38,7 @@ _Have another more specific idea? You may want to check out our vibrant collecti
     Navigate into your new site’s directory and start it up.
 
     ```shell
-    cd my-default-starter/
+    cd bronze-age-index/
     gatsby develop
     ```
 
@@ -37,14 +47,6 @@ _Have another more specific idea? You may want to check out our vibrant collecti
     Your site is now running at `http://localhost:8000`!
 
     Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby Tutorial](https://www.gatsbyjs.com/docs/tutorial/part-4/#use-graphiql-to-explore-the-data-layer-and-write-graphql-queries).
-
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-default)
 
 ## 🧐 What's inside?
 
@@ -82,18 +84,4 @@ A quick look at the top-level files and directories you'll see in a typical Gats
 
 1.  **`README.md`**: A text file containing useful reference information about your project.
 
-## 🎓 Learning Gatsby
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[Build, Deploy, and Host On The Only Cloud Built For Gatsby](https://www.gatsbyjs.com/products/cloud/)
-
-Gatsby Cloud is an end-to-end cloud platform specifically built for the Gatsby framework that combines a modern developer experience with an optimized, global edge network.
-
-<!-- AUTO-GENERATED-CONTENT:END -->

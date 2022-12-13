@@ -9,7 +9,7 @@ const Who = ({object}) => (
 )
 
 Who.propTypes = {
-    object: PropTypes.array.isRequired,
+    object: PropTypes.object.isRequired,
 }
 
 Who.defaultProps = {

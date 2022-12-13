@@ -40,18 +40,13 @@ export const pageQuery = graphql`
                     objectID
                     objectType
                     thumbnail {
-                    publicURL
-                    childImageSharp {
-                        gatsbyImageData(
-                            placeholder: TRACED_SVG
-                            height: 300
-                            formats: [AUTO, WEBP]
-                            width: 300
-                            quality: 80
-                            transformOptions: { grayscale: false, fit: COVER, cropFocus: CENTER }
-                        )
+                        publicURL
+                        childImageSharp {
+                            resize(width: 300, height: 300, cropFocus: CENTER, quality: 90) {
+                                src
+                            }
+                        }
                     }
-                }
                 }
             }
         }

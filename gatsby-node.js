@@ -5,14 +5,13 @@ exports.createPages = ({graphql, actions}) => {
     const {createPage} = actions
     const objectTemplate = path.resolve(`src/templates/object.js`)
     const indexTemplate = path.resolve(`src/templates/bronze-age.js`)
-    const profileTemplate = require.resolve(`./src/templates/profile.js`)
-    const contentTemplate = require.resolve(`./src/templates/content.js`)
-
+    const projectIndexTemplate = path.resolve(`src/templates/projects.js`)
+    const profileTemplate = path.resolve(`src/templates/profile.js`)
+    const contentTemplate = path.resolve(`src/templates/content.js`)
+    const projectTemplate = path.resolve(`src/templates/project.js`)
     return graphql(
         `{
-         team: allMarkdownRemark(
-        filter: {frontmatter: {section: {eq: "team"}}}
-      )  {
+         team: allMarkdownRemark( filter: {frontmatter: {section: {eq: "team"}}} ) {
         edges {
           node {
             id
@@ -23,10 +22,7 @@ exports.createPages = ({graphql, actions}) => {
           }
         }
       },
-      
-      posts: allMarkdownRemark(
-        filter: {frontmatter: {section: {eq: "content"}}}
-      )  {
+      posts: allMarkdownRemark( filter: {frontmatter: {section: {eq: "content"}}} )  {
         edges {
           node {
             id
@@ -38,7 +34,25 @@ exports.createPages = ({graphql, actions}) => {
           }
         }
       },
-          allObjects: allSplitCsv  {
+      projects: allMarkdownRemark( filter: {frontmatter: {section: {eq: "projects"}}} )  {
+        edges {
+          node {
+            id
+            html
+            frontmatter {
+              title
+              description
+              flickrURL
+              micropastsURL
+              slug
+              created(formatString: "MMMM DD, YYYY")
+              coverImage
+              tasks
+            }
+          }
+        }
+      },
+          allObjects: allSplitCsv(sort: {id: DESC}) {
             edges {
                  node {
                     id
@@ -55,7 +69,6 @@ exports.createPages = ({graphql, actions}) => {
                     fromdate  
                     todate
                     notes
-                    discoveryMethod
                     materialTerm
                     identifier
                     datefound1(formatString: "MMMM DD, YYYY")
@@ -69,7 +82,7 @@ exports.createPages = ({graphql, actions}) => {
                     diameter
                     edge
                     thickness
-                    context
+                    discoveryContext
                     parish
                     county
                     district
@@ -99,18 +112,8 @@ exports.createPages = ({graphql, actions}) => {
                     museumID
                     collectionIdentifier
                     stolenStatus
-                    thumbnail {
-                        childImageSharp {
-                            gatsbyImageData(
-                                placeholder: TRACED_SVG
-                                height: 300
-                                formats: [AUTO, WEBP]
-                                width: 300
-                                quality: 100
-                                transformOptions: { grayscale: false, fit: COVER, cropFocus: CENTER }
-                            )
-                        }
-                    }
+                    imageCopyrightHolder
+                   
               }
             }
           },
@@ -120,18 +123,6 @@ exports.createPages = ({graphql, actions}) => {
                 id
                 broadperiod
                 objectType
-                thumbnail {
-                        childImageSharp {
-                            gatsbyImageData(
-                                placeholder: TRACED_SVG
-                                height: 300
-                                formats: [AUTO, WEBP]
-                                width: 300
-                                quality: 90
-                                transformOptions: { grayscale: false, fit: COVER, cropFocus: CENTER }
-                            )
-                        }
-                    }
               }
             }
           }
@@ -163,9 +154,22 @@ exports.createPages = ({graphql, actions}) => {
             });
         });
 
+        result.data.projects.edges.forEach(({ node }) => {
+            const slug = '/projects/' + node.frontmatter.slug
+            // console.log(slug)
+            const project = node
+            createPage({
+                path: slug,
+                component: projectTemplate,
+                context: {
+                    ...project,
+                },
+            });
+        });
+
         result.data.allObjects.edges.forEach(({ node }) => {
             const object = node
-            console.log(object.objectID)
+            // console.log(object.objectID)
 
             const slug = 'records/' + object.objectID + '/'
             createPage({
@@ -183,6 +187,15 @@ exports.createPages = ({graphql, actions}) => {
             itemsPerPage: 12,
             itemsPerFirstPage: 12,
             pathPrefix: '/records'
+        });
+
+        paginate({
+            createPage: createPage,
+            component: projectIndexTemplate,
+            items: result.data.projects.edges,
+            itemsPerPage: 12,
+            itemsPerFirstPage: 12,
+            pathPrefix: '/projects'
         });
     })
 }
@@ -212,9 +225,47 @@ exports.onCreateNode = async (gatsbyUtils) => {
                 value: imageFile.id,
             });
 
-            reporter.info(`Created image File Node for ${node.thumbnail} thumbnail url`);
+            // reporter.info(`Created image File Node for ${node.thumbnail} thumbnail url`);
         } catch (e) {
-            reporter.error(`Error creating image File Node for ${node.thumbnail} thumbnail url`, e);
+            // reporter.error(`Error creating image File Node for ${node.thumbnail} thumbnail url`, e);
+        }
+    } else if (node.internal.type === `SplitCsv` &&  node.thumbnail === '') {
+        const imageFile = await createRemoteFileNode({
+            url: 'https://bronze-age-index.micropasts.org/img.png',
+            parentNodeId: node.id,
+            getCache,
+            createNode,
+            createNodeId,
+        });
+
+        createNodeField({
+            node,
+            name: `thumbnailFileID`,
+            value: imageFile.id,
+        });
+
+        reporter.info(`Created missing image File Node for ${node.id} `);
+    }
+
+    if (node.internal.type === `MarkdownRemark` &&  node.frontmatter.coverImage !== '' && node.frontmatter.section === 'projects') {
+        try {
+            const imageFile = await createRemoteFileNode({
+                url: node.frontmatter.coverImage,
+                parentNodeId: node.id,
+                getCache,
+                createNode,
+                createNodeId,
+            });
+
+            createNodeField({
+                node,
+                name: `coverImageFileID`,
+                value: imageFile.id,
+            });
+
+            // reporter.info(`Created coverImage File Node for ${node.frontmatter.coverImage} thumbnail url`);
+        } catch (e) {
+            // reporter.error(`Error creating image File Node for ${node.frontmatter.coverImage} thumbnail url`, e);
         }
     }
 };
@@ -223,6 +274,13 @@ exports.createSchemaCustomization = ({ actions }) => {
     actions.createTypes(`
     type SplitCsv implements Node {
       thumbnail: File @link(from: "fields.thumbnailFileID")
+    }
+    type MarkdownRemark implements Node {
+      frontmatter: Frontmatter
+      cover: File @link(from: "fields.coverImageFileID")
+    }
+    type Frontmatter {
+      title: String!
     }
   `);
 };

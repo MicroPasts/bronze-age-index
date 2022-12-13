@@ -4,7 +4,7 @@
 #
 # Example call from bash to split a single CSV into multiple 100 line CSVs:
 #     python3 split_csv /path/to/my/file.csv /path/to/split_files my_split_file 100
-#
+#   python3 split.py pas.csv split pas 500
 # Warning: This doesn't have any validation! This will overwrite existing files if you're not careful.
 
 import csv

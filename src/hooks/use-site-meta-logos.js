@@ -7,7 +7,7 @@ export const useSiteMetaLogos = () => {
                 siteMetadata {
                     logos {
                         institution
-                        url
+                        link
                         id
                         image 
                     }

@@ -8,6 +8,12 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 const {typeNameFromDir} = require("gatsby-transformer-csv")
+/**
+ * Enable environment variables
+ */
+require("dotenv").config({
+    path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
     siteMetadata: {
@@ -28,14 +34,19 @@ module.exports = {
                 id: 1
             },
             {
-                name: 'The Index',
-                link: '/records/',
+                name: 'Search the Index',
+                link: '/search/',
                 id: 2
+            },
+            {
+                name: 'CitSci Projects',
+                link: '/projects/',
+                id: 3
             },
             {
                 name: 'Mapping discovery',
                 link: 'https://mapping-the-bronze-age.micropasts.org',
-                id: 3
+                id: 4
             }
         ],
         aboutLinks: [
@@ -43,44 +54,31 @@ module.exports = {
                 name: 'Meet the Team',
                 link: '/team',
                 id: 1
-            },{
-                name: 'About the Project',
-                link: '/background',
-                id: 2
-            },
-            {
-                name: 'History of the index',
-                link: '/history-of-the-index',
-                id:3
-            },{
-                name: 'How was this created?',
-                link: '/how-was-this-created',
-                id: 4
             }
 
         ],
         logos: [
             {
                 institution: 'AHRC',
-                url: 'https://ahrc.ukri.org/',
+                link: 'https://ahrc.ukri.org/',
                 id: 4,
                 image: '/logos/AHRC.jpg'
             },
             {
                 institution: 'British Museum',
-                url: 'https://britishmuseum.org/',
+                link: 'https://britishmuseum.org/',
                 id: 1,
                 image: '/logos/bm.png'
             },
             {
                 institution: 'MicroPasts',
-                url: 'https://micropasts.org/',
+                link: 'https://micropasts.org/',
                 id: 2,
                 image: '/logos/mp.jpg'
             },
             {
                 institution: 'Institute of Archaeology',
-                url: 'https://archaeology.ucl.ac.uk/',
+                link: 'https://archaeology.ucl.ac.uk/',
                 id: 3,
                 image: '/logos/UCL.png'
             },
@@ -129,6 +127,14 @@ module.exports = {
             __key: "content"
         },
         {
+            resolve: 'gatsby-source-filesystem',
+            options: {
+                "name": "projects",
+                "path": "./src/projects"
+            },
+            __key: "projects"
+        },
+        {
             resolve: `gatsby-transformer-remark`,
             options: {
                 plugins: [
@@ -151,7 +157,18 @@ module.exports = {
         },
         `gatsby-plugin-twitter`,
         `gatsby-transformer-sharp`,
-        `gatsby-plugin-sharp`,
+        {
+            resolve: `gatsby-plugin-sharp`,
+            options: {
+                defaults: {},
+                failOn: `none`,
+                base64Width: 20,
+                forceBase64Format: `jpg`, // valid formats: png,jpg,webp
+                useMozJpeg: process.env.GATSBY_JPEG_ENCODER === `MOZJPEG`,
+                stripMetadata: false,
+                defaultQuality: 80,
+            },
+        },
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
@@ -161,6 +178,90 @@ module.exports = {
                 background_color: `#663399`,
                 display: `minimal-ui`,
                 icon: `src/images/gatsby-icon.png`,
+            },
+        },
+        {
+            resolve: `gatsby-plugin-google-gtag`,
+            options: {
+                trackingIds: [
+                    "G-7K85DVTZLC",
+                ],
+                pluginConfig: {
+                    head: true
+                },
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-meilisearch',
+            options: {
+                host: process.env.SEARCH_URL,
+                apiKey: process.env.API_KEY,
+                batchSize: 100,
+                indexes: [
+                    {
+                        indexUid: 'bai',
+                        settings: {
+                            searchableAttributes: ['*'],
+                            filterableAttributes: ["title", "discovery", "country", "county", "projects", "museum"],
+                        },
+                        transformer: (data) =>
+                            data.allSplitCsv.edges
+                                .map(({node},i) => {
+                                    if(node.thumbnail.publicURL === null){
+                                        console.log(node.objectID)
+                                    }
+                                    return {
+                                        id: node.id,
+                                        title: node.objectType || '',
+                                        objectID: node.objectID,
+                                        description:  node.description || node.notes || '',
+                                        period: node.broadperiod || '',
+                                        content: node.description || node.notes || '',
+                                        discovery: node.discoveryContext || '',
+                                        county: node.county || '',
+                                        country: node.country || '',
+                                        museum: node.museumCollection || '',
+                                        thumbnail: node.thumbnail.childImageSharp.resize.src || '',
+                                        imageURL: node.imageURL || '',
+                                        url: `https://bronze-age-index.micropasts.org/records/${node.objectID}`,
+                                        projects: node.project || 'PAS',
+                                    }
+                                }),
+                        query: `query getRecords {
+                          allSplitCsv {
+                            edges {
+                              node {
+                                id
+                                objectID
+                                broadperiod
+                                objectType
+                                description
+                                discoveryContext
+                                parish
+                                county
+                                country
+                                objectType
+                                imageURL
+                                project
+                                museumCollection
+                                museumID
+                                collectionIdentifier
+                                stolenStatus
+                                imageURL
+                                thumbnail {
+                                    publicURL
+                                    childImageSharp {
+                                        resize(width: 300, height: 300, cropFocus: CENTER, quality: 90) {
+                                            src
+                                        }
+                                    }
+                                }
+                              }
+                            }
+                          }
+                        }`,
+                    },
+                ],
             },
         },
 

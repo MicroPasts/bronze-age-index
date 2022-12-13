@@ -7,7 +7,7 @@ const TeamCard = ({post}) => (
     <Col md={4} className="mb-3">
         <Card className="border-0 bg-light">
             <Card.Body className="bg-white border-0 rounded-0">
-                {post.frontmatter.image !== undefined && <CardImg className="card-img-top rounded-circle"
+                {post.frontmatter.image !== undefined && <CardImg className="card-img-top"
                          as={GatsbyImage} image={getImage(post.frontmatter.image)} alt={"Object image"}/>}
                 {post.frontmatter.image === null && <Card.Img src={'/img.png'} alt="Card image" className={"rounded-circle img-fluid p-3"} />}
                 <div className="h-100 mt-2" style={{minHeight: 70}}>

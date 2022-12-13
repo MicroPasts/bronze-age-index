@@ -1,23 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactMarkdown from "react-markdown";
-
+import {capitalize} from "lodash";
 const Descriptive = ({object}) => (
     <>
-        {object.description && <ReactMarkdown>{object.description}</ReactMarkdown>}
-        {object.notes && <ReactMarkdown>{object.notes}</ReactMarkdown>}
-        {object.remarks && <ReactMarkdown>{object.remarks}</ReactMarkdown>}
-        {object.composition && <><h3>Composition</h3><ReactMarkdown>{object.composition}</ReactMarkdown></>}
-        {object.surface && <><h3>Surface</h3><ReactMarkdown>{object.surface}</ReactMarkdown></>}
+        {object.description && <ReactMarkdown>{capitalize(object.description)}</ReactMarkdown>}
+        {object.notes && <ReactMarkdown>{capitalize(object.notes)}</ReactMarkdown>}
+        {object.remarks && <ReactMarkdown>{capitalize(object.remarks)}</ReactMarkdown>}
+        {object.composition && <><h3>Composition</h3><ReactMarkdown>{capitalize(object.composition)}</ReactMarkdown></>}
+        {object.surface && <><h3>Surface</h3><ReactMarkdown>{capitalize(object.surface)}</ReactMarkdown></>}
         {object.associations && <><h3>Associations</h3>
-            <ReactMarkdown>{object.associations}</ReactMarkdown></>}
+            <ReactMarkdown>{capitalize(object.associations)}</ReactMarkdown></>}
         {object.publications && <><h3>Publications</h3>
-            <ReactMarkdown>{object.publications}</ReactMarkdown></>}
+            <ReactMarkdown>{capitalize(object.publications)}</ReactMarkdown></>}
     </>
 )
 
 Descriptive.propTypes = {
-    object: PropTypes.array.isRequired,
+    object: PropTypes.object.isRequired,
 }
 
 Descriptive.defaultProps = {

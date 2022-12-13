@@ -4,21 +4,25 @@ import {StaticImage} from "gatsby-plugin-image";
 
 
 const Journey = () => (
-    <Container fluid style={{}} className={'bg-white py-4'}>
+    <Container fluid style={{}} className={'bg-pastel py-4'}>
         <Row>
             <Col md={6} className="d-flex align-items-center justify-content-center">
                 <Col md={8} className="mx-auto align-middle">
-                    <h1 className={"text-gradient text-center fw-bolder"}>
-                        Discover the Bronze Age ...
+                    <h1 className={"text-dark text-center fw-bolder display-3"}>
+                        Discover the Bronze Age
                     </h1>
                     <p>
-                        The journey to provide a definitive index of Bronze Age implements began in 1913, and then
-                        100 years later, the MicroPasts project set about digitising and using the power of the crowd to
+                        An innovative Citizen Science project, which began its journey to provide a definitive index of Bronze Age implements in 1913 with a call to action.Then
+                        100 years later, the MicroPasts project (a partnership between University College London and the British Museum) set about digitising and using the power of the crowd to
                         unlock the paper records.
                     </p>
                     <p>
-                        This website combines these antiquarian records with the work of the Portable Antiquities Scheme
-                        to enable research into the British Bronze Age's metalwork.
+                        Funded by the Arts and Humanities Research Council, the project has now successfully
+                        delivered a digital index of the National Bronze Age Implement Index, which is freely available to all, including
+                        the code, data and images.
+                    </p>
+                    <p>This website allows archaeologists, academics and the public to explore the
+                        wide array of metalwork found and reported to museums, universities and the Portable Antiquities Scheme.
                     </p>
                 </Col>
             </Col>

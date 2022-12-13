@@ -10,7 +10,7 @@ const Collection = ({object}) => (
 )
 
 Collection.propTypes = {
-    object: PropTypes.array.isRequired,
+    object: PropTypes.object.isRequired,
 }
 
 Collection.defaultProps = {

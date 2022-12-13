@@ -14,7 +14,7 @@ const Discovery = ({object}) => (
 )
 
 Discovery.propTypes = {
-    object: PropTypes.array.isRequired,
+    object: PropTypes.object.isRequired,
 }
 
 Discovery.defaultProps = {

@@ -2,7 +2,7 @@ import React from "react"
 import {Container} from "react-bootstrap";
 const HeaderImage = () => (
        <Container fluid style={{
-            backgroundImage: `url(/axe.jpg)`,
+            backgroundImage: `url(/hoard.jpg)`,
             height: "60vh",
             backgroundSize: "cover",
             backgroundPosition: "center",

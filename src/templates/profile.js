@@ -53,12 +53,13 @@ export const pageQuery = graphql`
                 image{
                     childImageSharp {
                         gatsbyImageData(
-                            placeholder: BLURRED
-                            height: 600
+                            placeholder: NONE
+                            backgroundColor: "gray"
+                            height: 300
                             formats: [AUTO, WEBP]
-                            width: 600
-                            quality: 80
-                            transformOptions: { grayscale: false, fit: COVER, cropFocus: CENTER }
+                            width: 300
+                            quality: 90
+                            transformOptions: { grayscale: true, fit: COVER, cropFocus: CENTER }
                         )
                     }
                 }
