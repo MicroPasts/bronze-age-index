@@ -4,7 +4,8 @@
 
 This repository contains the code for the website that provides an interface for the [MicroPasts](https://micropasts.org) generated Bronze Age Implement Index
 data, combined with [Portable Antiquities Scheme](https://finds.org.uk) data. This website is a Gatsby 5 project, using CSV and markdown files to generate the
-web pages, with images sourced from [Flickr](https://flickr.com/micropasts) and the [PAS database](https://finds.org.uk). Search is provided using Mielisearch coupled with React InstantSearch.
+web pages, with images sourced from [Flickr](https://flickr.com/micropasts) and the [PAS database](https://finds.org.uk). Search is provided using [Meilisearch](https://www.meilisearch.com/) 
+installed on a free tier AWS t2.micro instance, coupled with React InstantSearch.
 
 This project comes about from a partnership between the [Institute of Archaeology](https://www.ucl.ac.uk/archaeology), University College London, the [British Museum](https://britishmuseum.org) and the Portable Antiquities Scheme, 
 and it was funded by the Arts and Humanities Research Council between 2013 and 2017. 
@@ -18,7 +19,7 @@ The code for this project was written by Daniel Pett (standing on the shoulders 
 project is generated on top of the [Peripleo product](https://github.com/britishlibrary/peripleo-lanc), written by [Rainer Simon](https://rainersimon.io) and funded by the 
 British Library as part of their [Locating a National Collection project](https://www.bl.uk/projects/locating-a-national-collection).
 
-** You are encouraged to remix and reuse any of the code and data in this repository. **
+**You are encouraged to remix and reuse any of the code and data in this repository.**
 
 ## 🚀 Quick start
 
