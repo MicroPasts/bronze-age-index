@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+title: The Bronze Age Index
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Daniel
+    family-names: Pett
+    email: dejp3@cam.ac.uk
+    affiliation: "St Edmund's College, University of Cambridge"
+    orcid: 'https://orcid.org/0000-0002-0246-2335'
+repository-code: >-
+  https://github.com/micropasts/bronze-age-index
+url: 'https://bronze-age-index.micropasts.org'
+abstract: >-
+  This repository holds the Gatsby 5 framework and
+  the front end build for the Bronze Age Index.
+keywords:
+  - gatsby
+  - museum
+  - open-source
+  - archaeology
+  - micropasts
+  - ahrc
+  - bronze-age
+license: 0BSD
+license-url: 'https://opensource.org/licenses/0BSD'
