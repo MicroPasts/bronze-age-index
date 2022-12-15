@@ -6,11 +6,11 @@ const Peripleo = () => (
     <Container fluid style={{}} className={'bg-dark py-4 text-white'}>
         <Row>
 
-            <Col md={6} className="text-center">
+            <Col md={6} className="text-center p-2 my-2">
                 <StaticImage src={'../../images/peripleo.png'} className={'rounded mx-4'} alt={'Call to action'}/>
             </Col>
 
-            <Col md={6} className="d-flex align-items-center justify-content-center">
+            <Col md={6} className="d-flex align-items-center justify-content-center p-2 my-2">
                 <Col md={8} className="mx-auto align-middle">
                     <h1 className={"display-4 text-center fw-bolder"}>
                         Uncover the past

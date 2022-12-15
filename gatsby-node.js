@@ -11,115 +11,114 @@ exports.createPages = ({graphql, actions}) => {
     const projectTemplate = path.resolve(`src/templates/project.js`)
     return graphql(
         `{
-         team: allMarkdownRemark( filter: {frontmatter: {section: {eq: "team"}}} ) {
-        edges {
-          node {
-            id
-            frontmatter {
-              name
-              slug
-            }
-          }
-        }
-      },
-      posts: allMarkdownRemark( filter: {frontmatter: {section: {eq: "content"}}} )  {
-        edges {
-          node {
-            id
-            frontmatter {
-              title
-              slug
-              author
-            }
-          }
-        }
-      },
-      projects: allMarkdownRemark( filter: {frontmatter: {section: {eq: "projects"}}} )  {
-        edges {
-          node {
-            id
-            html
-            frontmatter {
-              title
-              description
-              flickrURL
-              micropastsURL
-              slug
-              created(formatString: "MMMM DD, YYYY")
-              coverImage
-              tasks
-            }
-          }
-        }
-      },
-          allObjects: allSplitCsv(sort: {id: DESC}) {
+          team: allMarkdownRemark(filter: {frontmatter: {section: {eq: "team"}}}) {
             edges {
-                 node {
-                    id
-                    objectID
-                    PASID
-                    broadperiod
-                    objectType
-                    classification
-                    completeness
-                    periodo
-                    description
-                    fourFigureLat
-                    fourFigureLon
-                    fromdate  
-                    todate
-                    notes
-                    materialTerm
-                    identifier
-                    datefound1(formatString: "MMMM DD, YYYY")
-                    datefound2(formatString: "MMMM DD, YYYY")
-                    subsequentActionTerm
-                    recorder
-                    gridSource
-                    quantity 
-                    length
-                    height
-                    diameter
-                    edge
-                    thickness
-                    discoveryContext
-                    parish
-                    county
-                    district
-                    regionName
-                    country
-                    patina
-                    objectType
-                    surface
-                    other 
-                    composition
-                    associations
-                    publications
-                    inputBy
-                    imageURL
-                    flickrURL
-                    project
-                    rightCorner
-                    collection
-                    site
-                    toSearch
-                    gridRef
-                    dateDiscoveryDay
-                    dateDiscoveryMonth
-                    dateDiscoveryYear
-                    remarks
-                    museumCollection
-                    museumID
-                    collectionIdentifier
-                    stolenStatus
-                    imageCopyrightHolder
-                   
+              node {
+                id
+                frontmatter {
+                  name
+                  slug
+                }
               }
             }
-          },
+          }
+          posts: allMarkdownRemark(filter: {frontmatter: {section: {eq: "content"}}}) {
+            edges {
+              node {
+                id
+                frontmatter {
+                  title
+                  slug
+                  author
+                }
+              }
+            }
+          }
+          projects: allMarkdownRemark(filter: {frontmatter: {section: {eq: "projects"}}}) {
+            edges {
+              node {
+                id
+                html
+                frontmatter {
+                  title
+                  description
+                  flickrURL
+                  micropastsURL
+                  slug
+                  created(formatString: "MMMM DD, YYYY")
+                  coverImage
+                  tasks
+                }
+              }
+            }
+          }
+          allObjects: allSplitCsv(sort: {id: DESC}) {
+            edges {
+              node {
+                id
+                objectID
+                PASID
+                broadperiod
+                objectType
+                classification
+                completeness
+                periodo
+                description
+                fourFigureLat
+                fourFigureLon
+                fromdate
+                todate
+                notes
+                materialTerm
+                identifier
+                datefound1(formatString: "MMMM DD, YYYY")
+                datefound2(formatString: "MMMM DD, YYYY")
+                subsequentActionTerm
+                recorder
+                gridSource
+                quantity
+                length
+                height
+                diameter
+                edge
+                thickness
+                discoveryContext
+                parish
+                county
+                district
+                regionName
+                country
+                patina
+                objectType
+                surface
+                other
+                composition
+                associations
+                publications
+                inputBy
+                imageURL
+                flickrURL
+                project
+                rightCorner
+                collection
+                site
+                toSearch
+                gridRef
+                dateDiscoveryDay
+                dateDiscoveryMonth
+                dateDiscoveryYear
+                remarks
+                museumCollection
+                museumID
+                collectionIdentifier
+                stolenStatus
+                imageCopyrightHolder
+              }
+            }
+          }
           paginatedObjects: allSplitCsv {
             edges {
-             node {
+              node {
                 id
                 broadperiod
                 objectType
@@ -184,8 +183,8 @@ exports.createPages = ({graphql, actions}) => {
             createPage: createPage,
             component: indexTemplate,
             items: result.data.paginatedObjects.edges,
-            itemsPerPage: 12,
-            itemsPerFirstPage: 12,
+            itemsPerPage: 24,
+            itemsPerFirstPage: 24,
             pathPrefix: '/records'
         });
 
@@ -193,8 +192,8 @@ exports.createPages = ({graphql, actions}) => {
             createPage: createPage,
             component: projectIndexTemplate,
             items: result.data.projects.edges,
-            itemsPerPage: 12,
-            itemsPerFirstPage: 12,
+            itemsPerPage: 24,
+            itemsPerFirstPage: 24,
             pathPrefix: '/projects'
         });
     })

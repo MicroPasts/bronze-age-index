@@ -115,3 +115,9 @@ nav.pagination {
     background: linear-gradient(0deg, rgba(159,205,205,0.8337710084033614) 0%, rgba(86,192,198,1) 100%);
 }
 span.ais-RefinementList-labelText { margin-left: 10px!important; }
+.square {
+    object-fit: cover;
+    object-position: center;
+    height: 150px;
+    width: 150px;
+}

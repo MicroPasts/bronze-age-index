@@ -41,11 +41,7 @@ export const pageQuery = graphql`
                     objectType
                     thumbnail {
                         publicURL
-                        childImageSharp {
-                            resize(width: 300, height: 300, cropFocus: CENTER, quality: 90) {
-                                src
-                            }
-                        }
+          
                     }
                 }
             }

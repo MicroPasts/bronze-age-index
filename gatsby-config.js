@@ -196,7 +196,7 @@ module.exports = {
             options: {
                 host: process.env.SEARCH_URL,
                 apiKey: process.env.API_KEY,
-                batchSize: 100,
+                batchSize: 1000,
                 indexes: [
                     {
                         indexUid: 'bai',
@@ -207,21 +207,19 @@ module.exports = {
                         transformer: (data) =>
                             data.allSplitCsv.edges
                                 .map(({node},i) => {
-                                    if(node.thumbnail.publicURL === null){
-                                        console.log(node.objectID)
-                                    }
+                                    console.log(node)
                                     return {
                                         id: node.id,
                                         title: node.objectType || '',
                                         objectID: node.objectID,
                                         description:  node.description || node.notes || '',
-                                        period: node.broadperiod || '',
+                                        period: node.broadperiod || 'Bronze Age',
                                         content: node.description || node.notes || '',
                                         discovery: node.discoveryContext || '',
                                         county: node.county || '',
                                         country: node.country || '',
                                         museum: node.museumCollection || '',
-                                        thumbnail: node.thumbnail.childImageSharp.resize.src || '',
+                                        thumbnail: node.publicURL,
                                         imageURL: node.imageURL || '',
                                         url: `https://bronze-age-index.micropasts.org/records/${node.objectID}`,
                                         projects: node.project || 'PAS',
@@ -237,24 +235,15 @@ module.exports = {
                                 objectType
                                 description
                                 discoveryContext
-                                parish
                                 county
                                 country
                                 objectType
                                 imageURL
                                 project
                                 museumCollection
-                                museumID
-                                collectionIdentifier
-                                stolenStatus
                                 imageURL
                                 thumbnail {
                                     publicURL
-                                    childImageSharp {
-                                        resize(width: 300, height: 300, cropFocus: CENTER, quality: 90) {
-                                            src
-                                        }
-                                    }
                                 }
                               }
                             }

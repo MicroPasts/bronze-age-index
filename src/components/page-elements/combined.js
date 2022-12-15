@@ -6,10 +6,10 @@ const Combined = () => (
     <Container fluid style={{}} className={'bg-pale py-4'}>
         <Row>
 
-            <Col md={6} className="text-center">
+            <Col md={6} className="text-center p-2 my-2">
                 <StaticImage src={'../../images/NARC6A4546.jpg'} className={'rounded mx-4'} alt={'Call to action'}/>
             </Col>
-            <Col md={6} className="d-flex align-items-center justify-content-center">
+            <Col md={6} className="d-flex align-items-center justify-content-center p-2 my-2">
                 <Col md={8} className="mx-auto align-middle">
                     <h1 className={"text-dark display-4 text-center fw-bolder"}>
                         Combined data

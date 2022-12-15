@@ -8,8 +8,7 @@ const styles = {
 const Mold = () => (
     <Container fluid className={'bg-dark py-4'} style={styles}>
         <Row>
-
-            <Col md={6} className="d-flex align-items-center justify-content-center text-white">
+            <Col md={6} className="d-flex align-items-center justify-content-center text-white p-2 my-2">
                 <Col md={8} className="mx-auto align-middle">
                     <h1 className={"text-white text-center fw-bolder"}>
                         3D Models
@@ -29,7 +28,7 @@ const Mold = () => (
                 </Col>
             </Col>
 
-            <Col md={6} className="text-center">
+            <Col md={6} className="text-center p-2 my-2">
                 <div className="ratio ratio-16x9">
                     <iframe title="The Oxborough Dirk" frameBorder="0" allowFullScreen mozallowfullscreen="true"
                             webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking"

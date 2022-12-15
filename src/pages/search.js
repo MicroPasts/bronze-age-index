@@ -56,7 +56,7 @@ const SearchPage = () => {
                                         <h2 className={"my-2 lead fw-bolder"}>Holding collection</h2>
                                     <RefinementList attribute="museum" />
 
-                                        <Configure hitsPerPage={12} attributesToSnippet={["description:5"]} snippetEllipsisText={"..."}/>
+                                        <Configure hitsPerPage={24} attributesToSnippet={["description:5"]} snippetEllipsisText={"..."}/>
                                     </div>
                                 </Col>
 
@@ -83,11 +83,11 @@ const CustomHits = connectHits(({ hits }) => (
         <Card className="border-0 bg-light">
             <Card.Body className="bg-white border-0 rounded-0">
 
-            <CardImg className="card-img-top rounded-0 img-fluid" src={hit.thumbnail}  alt={"Object image"} width={300} height={300}/>
+            <CardImg className="card-img-top rounded-0 square" src={hit.thumbnail}  alt={"Object image"} width={150} height={150}/>
                 <div className="h-100" style={{minHeight: 70}}>
                 <Highlight attribute="name" hit={hit}/>
-                <Link to={hit.url} className="stretched-link stretched-link__blog_post"><h2 className={"lead text-black fw-bold mt-3"}>Object ID: {hit.objectID}</h2></Link>
-                <h3 className={"lead"}>Object type: {hit.title}</h3>
+                <Link to={hit.url} className="stretched-link stretched-link__blog_post"><h2 className={"lead text-black fw-bold mt-3"}>{hit.objectID}</h2></Link>
+                <h3 className={"lead"}>{hit.title}</h3>
                 </div>
             </Card.Body>
         </Card>
