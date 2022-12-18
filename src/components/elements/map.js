@@ -2,22 +2,28 @@ import React from "react"
 import {MapContainer, TileLayer, Marker, Popup} from "react-leaflet"
 import PropTypes from "prop-types";
 import 'leaflet/dist/leaflet.css';
-
+import {Row} from "react-bootstrap";
 import L from 'leaflet';
+import { useHasMounted } from "../../utils/hasMounted";
 
 
 
 const Map = ({geo_lon, geo_lat}) => {
-    const mapIcon = new L.Icon({
-        iconUrl: require('leaflet/dist/images/marker-icon.png').default,
-    });
-    return (<div>
+  const hasMounted = useHasMounted();
+
+ if (hasMounted) {
+  const mapIcon = new L.Icon({
+      iconUrl: require('leaflet/dist/images/marker-icon.png').default,
+  });
+    return (
+            <Row className={"mapObject"}>
                 <MapContainer
                     center={[geo_lat, geo_lon]}
                     zoom={12}
                     style={{height: "600px"}}
                     scrollWheelZoom={false}
                     dragging={false}
+                    tap={false} key="map"
                 >
                     <TileLayer
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -29,8 +35,11 @@ const Map = ({geo_lon, geo_lat}) => {
                         </Popup>
                     </Marker>
                 </MapContainer>
-        </div>
+
+                </Row>
+
     )
+}
 }
 
 Map.propTypes = {

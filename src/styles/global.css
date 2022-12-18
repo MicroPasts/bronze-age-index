@@ -47,16 +47,9 @@ body {
     width: 100%;
 }
 
-blockquote {
-    font-family: "Sorts Mill Goudy", serif;
-    color: cadetblue;
-    font-size: 1.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    font-style: italic;
-}
+
 header {
-    background: "purple";
+    background: "#6564a5";
     marginBottom: "2rem";
 }
 
@@ -120,4 +113,7 @@ span.ais-RefinementList-labelText { margin-left: 10px!important; }
     object-position: center;
     height: 150px;
     width: 150px;
+}
+.content {
+  margin-top: 4rem;
 }

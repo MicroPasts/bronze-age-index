@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 const Location = ({object}) => (
     <>
+      <div className={"location"}>
         <h3>Location</h3>
         <ul className={"list-unstyled"}>
             {object.country && <li>Country: {object.country}</li>}
@@ -15,11 +16,12 @@ const Location = ({object}) => (
         {object.site && <p>BAI index card site transcribed as: {object.site}</p>}
         {object.gridRef && <p>Grid Reference: {object.gridRef}</p>}
         {object.toSearch && <p>MicroPasts contributors searched for: {object.toSearch}</p>}
+        </div>
     </>
 );
 
 Location.propTypes = {
-    object: PropTypes.object.isRequired,
+    object: PropTypes.object
 }
 
 Location.defaultProps = {

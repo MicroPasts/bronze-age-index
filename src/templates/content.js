@@ -2,7 +2,7 @@ import {graphql} from "gatsby";
 import * as React from "react";
 import Layout from "../components/layout";
 import {Container, Row} from "react-bootstrap";
-import Seo from "../components/structure/SEO";
+import Seo from "../components/seo";
 
 export default function ContentTemplate({data: {markdownRemark}}) {
     const {frontmatter, html} = markdownRemark;
@@ -10,18 +10,13 @@ export default function ContentTemplate({data: {markdownRemark}}) {
         <Layout>
             <Container className={"mt-4"}>
                 <Row className={"post-body"}>
-                    <div className="">
+                    <div>
                         <h1 className="text-black fw-bold mt-4">{frontmatter.title}</h1>
                         <h2 className="text-black fw-bold mt-4">{frontmatter.author}</h2>
-
                     </div>
-                            <div className="post-body bg-white text-black"
-                                 dangerouslySetInnerHTML={{__html: html}}/>
-
+                    <div className="post-body bg-white text-black" dangerouslySetInnerHTML={{__html: html}}/>
                 </Row>
-
             </Container>
-
         </Layout>
     );
 }
@@ -35,7 +30,7 @@ export const pageQuery = graphql`
             frontmatter {
                 slug
                 title
-                author  
+                author
             }
         }
     }

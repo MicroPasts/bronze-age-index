@@ -14,7 +14,7 @@ const DiscoveryContexts = ({object}) => (
 )
 
 DiscoveryContexts.propTypes = {
-    object: PropTypes.object.isRequired
+    object: PropTypes.object
 }
 
 DiscoveryContexts.defaultProps = {

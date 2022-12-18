@@ -5,7 +5,7 @@ const Metrics = ({object}) => (
     <>
         <ul className={"list-unstyled"}>
             {object.materialTerm && <li>Made from: {object.materialTerm}</li>}
-            {object.quantity && <li>Quantity: {object.quantity}</li>}
+            {object.quantity !== 'NA' && <li>Quantity: {object.quantity}</li>}
             {object.edge && <li>Edge: {object.edge}</li>}
             {object.length && <li>Length: {object.length}</li>}
             {object.thickness && <li>Thickness: {object.thickness}</li>}
@@ -15,7 +15,7 @@ const Metrics = ({object}) => (
 )
 
 Metrics.propTypes = {
-    object: PropTypes.object.isRequired,
+    object: PropTypes.object
 
 }
 

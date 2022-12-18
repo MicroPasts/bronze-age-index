@@ -28,13 +28,11 @@ const Mold = () => (
                 </Col>
             </Col>
 
-            <Col md={6} className="text-center p-2 my-2">
-                <div className="ratio ratio-16x9">
-                    <iframe title="The Oxborough Dirk" frameBorder="0" allowFullScreen mozallowfullscreen="true"
-                            webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking"
-                            xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+            <Col md={6} className={"text-center  my-2 px-3 mr-3"}>
+                <div className={"ratio ratio-16x9 rounded-4"}>
+                    <iframe className={"rounded-4"} title="The Oxborough Dirk" allowFullScreen mozallowfullscreen="true"
+                            webkitallowfullscreen="true" allow="autoplay; fullscreen;"
                             src="https://sketchfab.com/models/b406491728b642c88b5e7bd4b3b68f2f/embed"></iframe>
-
                 </div>
             </Col>
 

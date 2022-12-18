@@ -7,7 +7,7 @@ const Peripleo = () => (
         <Row>
 
             <Col md={6} className="text-center p-2 my-2">
-                <StaticImage src={'../../images/peripleo.png'} className={'rounded mx-4'} alt={'Call to action'}/>
+                <StaticImage src={'../../images/peripleo.png'} className={'rounded-4 mx-4'} alt={'Call to action'}/>
             </Col>
 
             <Col md={6} className="d-flex align-items-center justify-content-center p-2 my-2">
@@ -26,10 +26,10 @@ const Peripleo = () => (
                     </p>
 
                     <p className={"text-center"}>
-                        <a href="https://mapping-the-bronze-age.micropasts.org" className="btn btn-outline rounded-0 border-white my-1 mx-2">Explore the Bronze Age Index on Peripleo</a>
+                        <a href="https://mapping-the-bronze-age.micropasts.org" className="btn btn-outline rounded-0 border-white my-1 mx-2">Explore the Bronze Age Index using Peripleo</a>
                     </p>
                     <p className={"text-center"}>
-                        <img src={'https://mapping-the-bronze-age.micropasts.org/startup-logo.svg'} className={'rounded mx-4'} alt={'Call to action'}/>
+                        <img src={'https://mapping-the-bronze-age.micropasts.org/startup-logo.svg'} className={'rounded mx-4'} alt={'Mapping the Bronze Age - a screenshot'}/>
                     </p>
                 </Col>
             </Col>

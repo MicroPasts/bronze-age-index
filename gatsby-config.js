@@ -82,9 +82,18 @@ module.exports = {
                 id: 3,
                 image: '/logos/UCL.png'
             },
-
+            {
+                institution: 'Portable Antiquities',
+                link: 'https://finds.org.uk/',
+                id: 5,
+                image: '/logos/pas.jpg'
+            },
 
         ]
+    },
+    flags: {
+      DEV_SSR: true,
+      PRESERVE_FILE_DOWNLOAD_CACHE: true
     },
     plugins: [
         {
@@ -192,6 +201,12 @@ module.exports = {
             },
         },
         {
+      resolve: 'gatsby-plugin-react-leaflet',
+      options: {
+        linkStyles: true // (default: true) Enable/disable loading stylesheets via CDN
+      }
+    },
+        {
             resolve: 'gatsby-plugin-meilisearch',
             options: {
                 host: process.env.SEARCH_URL,
@@ -219,7 +234,7 @@ module.exports = {
                                         county: node.county || '',
                                         country: node.country || '',
                                         museum: node.museumCollection || '',
-                                        thumbnail: node.publicURL,
+                                        thumbnail: node.thumbnail.publicURL,
                                         imageURL: node.imageURL || '',
                                         url: `https://bronze-age-index.micropasts.org/records/${node.objectID}`,
                                         projects: node.project || 'PAS',

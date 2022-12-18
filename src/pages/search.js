@@ -17,8 +17,7 @@ import {instantMeiliSearch} from "@meilisearch/instant-meilisearch";
 
 import Layout from "../components/layout"
 import {Container, Col, Row,Card, CardImg} from 'react-bootstrap';
-import Seo from "../components/structure/SEO";
-import {Link} from "gatsby";
+import Seo from "../components/seo";
 
 const searchClient = instantMeiliSearch(
     process.env.SEARCH_URL,
@@ -33,14 +32,13 @@ const searchClient = instantMeiliSearch(
 const SearchPage = () => {
     return (
         <Layout>
-            <Container fluid className={"mt-4"}>
+            <Container fluid className={"content"}>
                 <Container className={"mt-3"}>
                     <div className="ais-InstantSearch">
                         <h1 className={"mt-5"}>Search the index</h1>
                         <InstantSearch indexName="bai" searchClient={searchClient} className={"my-2"}>
                             <Row>
                                 <Col md={3}>
-                                    <div className="left-panel">
                                         <ClearRefinements/>
 
                                         <h2 className={"my-2 lead fw-bolder"}>Object type</h2>
@@ -57,15 +55,12 @@ const SearchPage = () => {
                                     <RefinementList attribute="museum" />
 
                                         <Configure hitsPerPage={24} attributesToSnippet={["description:5"]} snippetEllipsisText={"..."}/>
-                                    </div>
                                 </Col>
 
                                 <Col md={9}>
-                                    <div className="right-panel">
                                         <SearchBox className={"my-3"}/>
                                         <CustomHits />
                                         <Pagination showLast={false} className={"mt-3"}/>
-                                    </div>
                                 </Col>
                             </Row>
                         </InstantSearch>
@@ -86,7 +81,7 @@ const CustomHits = connectHits(({ hits }) => (
             <CardImg className="card-img-top rounded-0 square" src={hit.thumbnail}  alt={"Object image"} width={150} height={150}/>
                 <div className="h-100" style={{minHeight: 70}}>
                 <Highlight attribute="name" hit={hit}/>
-                <Link to={hit.url} className="stretched-link stretched-link__blog_post"><h2 className={"lead text-black fw-bold mt-3"}>{hit.objectID}</h2></Link>
+                <a href={hit.url} className="stretched-link stretched-link__blog_post"><h2 className={"lead text-black fw-bold mt-3"}>{hit.objectID}</h2></a>
                 <h3 className={"lead"}>{hit.title}</h3>
                 </div>
             </Card.Body>
@@ -95,8 +90,6 @@ const CustomHits = connectHits(({ hits }) => (
         ))}
     </Row>
 ));
-
-
 
 
 export default SearchPage

@@ -15,7 +15,6 @@ const Logos = ({ logos }) => {
                             alt={logo.institution}
                             src={logo.image}
                             loading="lazy" /></a>
-
                     </Col>
                     ))}
                 </Row>

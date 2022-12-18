@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import {capitalize} from "lodash";
 const Descriptive = ({object}) => (
     <>
+    <div className={"description"}>
         {object.description && <ReactMarkdown>{capitalize(object.description)}</ReactMarkdown>}
         {object.notes && <ReactMarkdown>{capitalize(object.notes)}</ReactMarkdown>}
         {object.remarks && <ReactMarkdown>{capitalize(object.remarks)}</ReactMarkdown>}
@@ -13,11 +14,12 @@ const Descriptive = ({object}) => (
             <ReactMarkdown>{capitalize(object.associations)}</ReactMarkdown></>}
         {object.publications && <><h3>Publications</h3>
             <ReactMarkdown>{capitalize(object.publications)}</ReactMarkdown></>}
+            </div>
     </>
 )
 
 Descriptive.propTypes = {
-    object: PropTypes.object.isRequired,
+    object: PropTypes.object,
 }
 
 Descriptive.defaultProps = {

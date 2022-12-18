@@ -8,10 +8,12 @@ const PostCard = ({post}) => (
 
             <Card.Body className="bg-white border-0 rounded-0">
                 {post.thumbnail !== null &&
-                    <CardImg className="card-img-top rounded-0 square" src={post.thumbnail.publicURL}  alt={"Object image"} width={150} height={150}/>
+                    <CardImg className="card-img-top rounded-0 square" src={post.thumbnail.publicURL} alt={"Object image"} width={150} height={150}/>
                 }
-                {post.thumbnail === null && <Card.Img src={'/img.png'} alt="Card image" width={150} height={150}/>}
-                <div className="h-100" style={{minHeight: 70}}>
+                {post.thumbnail === null &&
+                  <Card.Img src={'/img.png'} alt="Card image" width={150} height={150}/>
+                }
+                <div className="h-100">
                     <Link to={'/records/' + post.objectID} className="stretched-link stretched-link__blog_post">
                         <h1 className="lead text-black fw-bold mt-3">{post.objectType}</h1>
                     </Link>

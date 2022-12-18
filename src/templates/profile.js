@@ -2,7 +2,7 @@ import {graphql} from "gatsby";
 import * as React from "react";
 import Layout from "../components/layout";
 import {Container, Row, Col} from "react-bootstrap";
-import Seo from "../components/structure/SEO";
+import Seo from "../components/seo";
 
 export default function ProfileTemplate({data: {markdownRemark}}) {
     const {frontmatter, html} = markdownRemark;
@@ -32,7 +32,6 @@ export default function ProfileTemplate({data: {markdownRemark}}) {
                     </ul>
                 </Row>
             </Container>
-
         </Layout>
     );
 }

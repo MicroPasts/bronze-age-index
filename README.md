@@ -4,26 +4,26 @@
 
 This repository contains the code for the website that provides an interface for the [MicroPasts](https://micropasts.org) generated Bronze Age Implement Index
 data, combined with [Portable Antiquities Scheme](https://finds.org.uk) data. This website is a Gatsby 5 project, using CSV and markdown files to generate the
-web pages, with images sourced from [Flickr](https://flickr.com/micropasts) and the [PAS database](https://finds.org.uk). Search is provided using [Meilisearch](https://www.meilisearch.com/) 
+web pages, with images sourced from [Flickr](https://flickr.com/micropasts) and the [PAS database](https://finds.org.uk). Search is provided using [Meilisearch](https://www.meilisearch.com/)
 installed on a free tier AWS t2.micro instance, coupled with React InstantSearch.
 
-This project comes about from a partnership between the [Institute of Archaeology](https://www.ucl.ac.uk/archaeology), University College London, the [British Museum](https://britishmuseum.org) and the Portable Antiquities Scheme, 
-and it was funded by the Arts and Humanities Research Council between 2013 and 2017. 
+This project comes about from a partnership between the [Institute of Archaeology](https://www.ucl.ac.uk/archaeology), University College London, the [British Museum](https://britishmuseum.org) and the Portable Antiquities Scheme,
+and it was funded by the Arts and Humanities Research Council between 2013 and 2017.
 
 The project was led by Professor Andrew Bevan and Professor Daniel Pett. Team members included Dr Jennifer Wexler, Dr Newil Wilkin, Dr Chiara Bonnachi, Dr Adi Kienan-Schoonbaert,
 Dr Neil Wilkin, and Dr Rachel Sparks. Most of the team have moved from their host organisations now, but the project continues to be supported
-by the members using their own time and resources. Wherever possible, we have tried to acknowledge the contributions of 
-the team members in the code and the data and we have used free and open source products and services to run our work. 
+by the members using their own time and resources. Wherever possible, we have tried to acknowledge the contributions of
+the team members in the code and the data and we have used free and open source products and services to run our work.
 
-The code for this project was written by Daniel Pett (standing on the shoulders of giants). The [mapping interface](https://github.com/MicroPasts/mapping-the-bronze-age) for this 
-project is generated on top of the [Peripleo product](https://github.com/britishlibrary/peripleo-lanc), written by [Rainer Simon](https://rainersimon.io) and funded by the 
+The code for this project was written by Daniel Pett (standing on the shoulders of giants). The [mapping interface](https://github.com/MicroPasts/mapping-the-bronze-age) for this
+project is generated on top of the [Peripleo product](https://github.com/britishlibrary/peripleo-lanc), written by [Rainer Simon](https://rainersimon.io) and funded by the
 British Library as part of their [Locating a National Collection project](https://www.bl.uk/projects/locating-a-national-collection).
 
 **You are encouraged to remix and reuse any of the code and data in this repository.**
 
 ## 🚀 Quick start
 
-How to get this working on your machine. 
+How to get this working on your machine.
 
 1.  **Install Node, NPM and Gatsby**
 
@@ -55,12 +55,12 @@ How to get this working on your machine.
     nano .env.production #set the environment variables for production SEARCH_URL='' and API_KEY='' for search to be populated
     gatsby build
     ```
-3. ** Test the site locally**
+3.  **Test the site locally**
 
     ```shell
     gatsby serve
-    ``` 
-Your site is now running at `http://localhost:9000`!
+    ```
+    Your site is now running at `http://localhost:9000` or it may  ask you to use another port.
 
 ## 🧐 What's inside?
 
@@ -97,5 +97,3 @@ A quick look at the top-level files and directories you'll see in a typical Gats
 1.  **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
 1.  **`README.md`**: A text file containing useful reference information about your project.
-
-

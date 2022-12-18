@@ -18,7 +18,7 @@ const Tags = ({object}) => (
 )
 
 Tags.propTypes = {
-    object: PropTypes.object.isRequired
+    object: PropTypes.object
 }
 
 Tags.defaultProps = {

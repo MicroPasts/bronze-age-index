@@ -1,33 +1,33 @@
 import React from "react"
+import {Container} from "react-bootstrap";
+
 import Layout from "../components/layout";
+import Seo from "../components/seo";
 import ObjectTitle from "../components/page-elements/object-title";
 import Collection from "../components/page-elements/collection";
 import Dating from "../components/page-elements/dating";
 import PortableAntiquities from "../components/page-elements/portable-antiquities";
-import Image from "../components/page-elements/image";
-
-import Map from "../components/elements/map";
-import {Container} from "react-bootstrap";
-import Seo from "../components/structure/SEO";
 import MicropastsProject from "../components/page-elements/micropasts-project";
+import Image from "../components/page-elements/image";
 import Descriptive from "../components/page-elements/descriptive";
 import Location from "../components/page-elements/location";
+import Map from "../components/elements/map";
 import Discovery from "../components/page-elements/discovery";
 import Subsequent from "../components/page-elements/subsequent";
 import Metrics from "../components/page-elements/metrics";
 import Who from "../components/page-elements/who";
 import DiscoveryContexts from "../components/page-elements/discovery-contexts";
+import ErrorReport from "../components/page-elements/error-report";
 
 const Object = props => {
     const {
         pageContext: {...object},
     } = props
-    const isSSR = typeof window === "undefined";
 
     return (
         <>
             <Layout>
-                <Seo title={'An object record for ' + object.objectID}/>
+
                 <Container className="mt-3 mb-2 post-body">
                     <ObjectTitle object={object}/>
                     <Collection object={object}/>
@@ -38,7 +38,7 @@ const Object = props => {
                     <Descriptive object={object}/>
                     <Location object={object}/>
                 </Container>
-                {!isSSR && object.fourFigureLat && (
+                {object.fourFigureLat !== 'NA' && object.fourFigureLon !== 'NA' && (
                     <Map geo_lat={object.fourFigureLat} geo_lon={object.fourFigureLon}/>
                 )}
                 <Container fluid className="py-3 bg-pale">
@@ -48,6 +48,7 @@ const Object = props => {
                         <Metrics object={object}/>
                         <Who object={object}/>
                         <DiscoveryContexts object={object}/>
+                        <ErrorReport object={object} />
                     </Container>
                 </Container>
             </Layout>
@@ -55,5 +56,13 @@ const Object = props => {
     )
 }
 
+export const Head = props => {
+    const {
+        pageContext: {...object},
+    } = props
+  return (  <>
+        <Seo title={'Object record ' + object.objectID} key={'title'}/>
+    </>)
+}
 
 export default Object

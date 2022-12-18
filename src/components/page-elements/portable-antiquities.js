@@ -10,7 +10,7 @@ const PortableAntiquities = ({object}) => (
 )
 
 PortableAntiquities.propTypes = {
-    object: PropTypes.object.isRequired,
+    object: PropTypes.object
 }
 
 PortableAntiquities.defaultProps = {

@@ -3,13 +3,13 @@ import Layout from "../components/layout"
 import TeamCard from "../components/structure/team-card";
 import {graphql} from "gatsby"
 import {Container, Row} from 'react-bootstrap';
-import Seo from "../components/structure/SEO";
+import Seo from "../components/seo";
 
 const TeamPage = (props) => {
     const Posts = props.data.allMarkdownRemark.edges.map(edge => <TeamCard key={edge.node.id} post={edge.node}/>)
     return (
         <Layout>
-            <Container className={"mt-4"}>
+            <Container className={"content"}>
                 <Row>
                     <h1 className="ml-4 mt-4">The Team behind this project</h1>
                     <Row>
@@ -17,7 +17,6 @@ const TeamPage = (props) => {
                     </Row>
                 </Row>
             </Container>
-
         </Layout>
     );
 }
@@ -28,13 +27,13 @@ export const pageQuery = graphql`
         allMarkdownRemark(
             filter: {frontmatter: {section: {eq: "team"}}}
             sort: {frontmatter: {name: ASC}}
-           
+
         ) {
             edges {
                 node {
                     id
                     frontmatter {
-                        name 
+                        name
                         slug
                         title
                         institution

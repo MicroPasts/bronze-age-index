@@ -5,17 +5,33 @@ import {Row, Col} from "react-bootstrap";
 const Image = ({object}) => (
     <>
         {object.imageURL !== 'undefined' &&
-            <Row className={"my-2"}><Col md={12}><img src={object.imageURL} alt={object.objectType}
-                                                      className={"img-fluid"}/></Col></Row>}
+            <Row className={"my-2"}>
+              <Col md={12}>
+                <img src={object.imageURL} alt={object.objectType} className={"img-fluid"}/>
+              </Col>
+            </Row>
+        }
         {object.flickrURL &&
-            <Row className={"my-2"}><Col md={12}><a href={object.flickrURL} className={"btn-dark btn my-1 text-white rounded-0"}>View and
-                download this via Flickr</a></Col></Row>}
-        {object.imageCopyrightHolder && <Col md={12}><p className={"fw-bolder"}>Image courtesy {object.imageCopyrightHolder}</p></Col>}
+            <Row className={"my-2"}>
+              <Col md={12}>
+                <a href={object.flickrURL} className={"btn-dark btn my-1 text-white rounded-0"}>View and download this via Flickr</a>
+              </Col>
+            </Row>
+        }
+        {object.imageCopyrightHolder &&
+          <Row className={"my-2"}>
+            <Col md={12}>
+              <p className={"fw-bolder"}>
+                Image courtesy {object.imageCopyrightHolder}
+              </p>
+            </Col>
+            </Row>
+          }
     </>
 )
 
 Image.propTypes = {
-    object: PropTypes.object.isRequired,
+    object: PropTypes.object
 }
 
 Image.defaultProps = {

@@ -3,7 +3,7 @@ import Layout from "../components/layout"
 import ProjectCard from "../components/structure/project-card";
 import {graphql} from "gatsby"
 import {Container, Row} from 'react-bootstrap';
-import Seo from "../components/structure/SEO"
+import Seo from "../components/seo"
 
 import Pagination from '../components/structure/pagination';
 
@@ -11,10 +11,9 @@ const ProjectsPageTemplate = (props) => {
     const Posts = props.data.allMarkdownRemark.edges.map(edge => <ProjectCard key={edge.node.id} post={edge.node}/>)
     return (
         <Layout>
-            <Container className={"mt-4"}>
+            <Container className={"content"}>
                 <Row>
                     <h1 className={"ml-4 mt-4"}>The Citizen Science Projects behind the index</h1>
-
                 </Row>
                 <Row>
                     {Posts}
