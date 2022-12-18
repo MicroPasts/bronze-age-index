@@ -62,6 +62,19 @@ How to get this working on your machine.
     ```
     Your site is now running at `http://localhost:9000` or it may  ask you to use another port.
 
+4.  **Deploy the site**
+
+    ```shell
+    gatsby deploy
+    ```
+
+    Or if you have already built and cannot be  bothered to wait again:
+
+    ```shell
+    npm run pages
+    ```
+    Deploy time is around 10-15 mins on a decent speed machine. If on an old mac, you may need to tune ulimit or just not bother...
+
 ## 🧐 What's inside?
 
 A quick look at the top-level files and directories you'll see in a typical Gatsby project.
