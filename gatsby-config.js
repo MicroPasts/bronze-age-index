@@ -212,7 +212,7 @@ module.exports = {
                 host: process.env.SEARCH_URL,
                 apiKey: process.env.API_KEY,
                 batchSize: 1000,
-                skipIndexing: true,
+                skipIndexing: process.env.INDEX,
                 indexes: [
                     {
                         indexUid: 'bai',

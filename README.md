@@ -49,10 +49,10 @@ How to get this working on your machine.
 
     Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby Tutorial](https://www.gatsbyjs.com/docs/tutorial/part-4/#use-graphiql-to-explore-the-data-layer-and-write-graphql-queries).
 2.  **Build the site**
-
+    Set up search integration and then build
     ```shell
     touch .env.production
-    nano .env.production #set the environment variables for production SEARCH_URL='' and API_KEY='' for search to be populated
+    nano .env.production #set the environment variables for production SEARCH_URL='' and API_KEY='' and whether you want to inex on build INDEX='true/false'
     gatsby build
     ```
 3.  **Test the site locally**
