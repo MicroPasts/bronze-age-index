@@ -9,9 +9,9 @@ const TeamPage = (props) => {
     const Posts = props.data.allMarkdownRemark.edges.map(edge => <TeamCard key={edge.node.id} post={edge.node}/>)
     return (
         <Layout>
-            <Container className={"content"}>
+            <Container className={"content mt-3"}>
                 <Row>
-                    <h1 className="ml-4 mt-4">The Team behind this project</h1>
+                    <h1 className="ml-4 mt-5">The Team behind this project</h1>
                     <Row>
                         {Posts}
                     </Row>

@@ -54,6 +54,16 @@ module.exports = {
                 name: 'Meet the Team',
                 link: '/team',
                 id: 1
+            },
+            {
+                name: 'NBAI Background',
+                link: '/history-of-the-index',
+                id: 2
+            },
+            {
+                name: 'Related Publications',
+                link: '/publications',
+                id: 3
             }
 
         ],

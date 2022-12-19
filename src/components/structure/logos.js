@@ -11,7 +11,7 @@ const Logos = ({ logos }) => {
                     {logos.map(logo => (
                     <Col key={logo.id} md={2} className={"col-sm-2 text-center"}>
                         <a href={logo.link}><img
-                            className="img-fluid mx-auto"
+                            className="img-fluid mx-auto my-2"
                             alt={logo.institution}
                             src={logo.image}
                             loading="lazy" /></a>

@@ -11,8 +11,7 @@ export default function ContentTemplate({data: {markdownRemark}}) {
             <Container className={"mt-4"}>
                 <Row className={"post-body"}>
                     <div>
-                        <h1 className="text-black fw-bold mt-4">{frontmatter.title}</h1>
-                        <h2 className="text-black fw-bold mt-4">{frontmatter.author}</h2>
+                        <h1 className="text-black fw-bold mt-5">{frontmatter.title}</h1>
                     </div>
                     <div className="post-body bg-white text-black" dangerouslySetInnerHTML={{__html: html}}/>
                 </Row>

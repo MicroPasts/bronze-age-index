@@ -14,7 +14,6 @@ const BronzePageTemplate = (props) => {
             <Container className={"content"}>
                 <Row>
                     <h1 className={"ml-4 mt-4"}>The Bronze Age Implement Index</h1>
-
                 </Row>
                 <Row>
                     {Posts}

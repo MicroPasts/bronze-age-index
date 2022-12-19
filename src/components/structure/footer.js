@@ -26,7 +26,7 @@ const Footer = ({aboutLinks}) => {
                         <Col md={4}>
                             <h3 className={"visually-hidden"}>Licensing</h3>
                             <p className="text-white">
-                                Words: <a href={'https://creativecommons.org/licenses/by/4.0/'}>CC-BY</a><br/>
+                                Text: <a href={'https://creativecommons.org/licenses/by/4.0/'}>CC-BY</a><br/>
                                 Images: <a href={'https://creativecommons.org/licenses/by/4.0/'}>CC-BY</a><br/>
                                 Code: <a href={'https://opensource.org/licenses/0BSD'}>OBSD</a><br/>
                                 &copy; {new Date().getFullYear()}

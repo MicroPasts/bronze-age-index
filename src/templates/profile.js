@@ -8,19 +8,19 @@ export default function ProfileTemplate({data: {markdownRemark}}) {
     const {frontmatter, html} = markdownRemark;
     return (
         <Layout>
-            <Container className={"mt-4"}>
-                <Row className={"post-body"}>
+            <Container>
+                <Row className={"post-body content"}>
                     <div className="">
-                        <h1 className="text-black fw-bold mt-4">{frontmatter.title} {frontmatter.name}</h1>
+                        <h1 className="text-black fw-bold mt-3">{frontmatter.title} {frontmatter.name}</h1>
                     </div>
                     <Row>
-                        <Col md={8}>
-                            <div className="post-body bg-white text-black"
-                                 dangerouslySetInnerHTML={{__html: html}}/>
-                        </Col>
                         <Col md={4}>
                             <img src={frontmatter.image.childImageSharp.gatsbyImageData.images.fallback.src}
                                  alt={frontmatter.name} className={"rounded-circle"}/>
+                        </Col>
+                        <Col md={8}>
+                            <div className="post-body bg-white text-black"
+                                 dangerouslySetInnerHTML={{__html: html}}/>
                         </Col>
                     </Row>
                 </Row>

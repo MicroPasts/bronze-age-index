@@ -28,7 +28,7 @@ const Object = props => {
         <>
             <Layout>
 
-                <Container className="mt-3 mb-2 post-body">
+                <Container className="mt-3 mb-2 post-body content">
                     <ObjectTitle object={object}/>
                     <Collection object={object}/>
                     <Dating object={object}/>
