@@ -18,7 +18,7 @@ const Mold = () => (
                         and  download from Sketchfab and are integrated here.
                     </p>
                     <p>
-                        These objects range from broken and complete palstave axes, hoard such as Goudhurst, Stibbard and Arreton Down to large ceremonial dirks and swords.
+                        These objects range from broken and complete palstave axes, hoards such as Goudhurst, Stibbard and Arreton Down to large ceremonial dirks and swords.
                     </p>
                     <p>
                         Please feel free to download and remix these models, and if you do, please let us know!

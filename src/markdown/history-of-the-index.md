@@ -26,8 +26,6 @@ Beyond recording typological data, often these cards contain additional informat
 
 Another card records an object discovered in 1808 at Osmington Hill, Dorset whilst cutting a hill figure dedicated to King George III, who would often pass by on his way to his seaside residence at Weymouth. In these cases, and many others, the cards’ record of historical moments or connections to significant personages seems to eclipse their primary function as a record of archaeological artefacts.
 
-
 The cards also begin to act as a sort of proxy for the objects themselves, an idea of materiality. The records are descriptions of something material on a medium that is a “material” itself, but in reality it is the information itself that is the historical artefact and the main objects of study.
 
-
- Consequently, the record of the human interaction with these archives proves to be just as fascinating to study as the information actually contained in the records, as contributors to the field of history of archaeology can certainly attest to (for example, see Murray 2014).Figure 7.“X” marks the spot. Detail of a NBAI card, showing the findspot of a spearhead (© Trustees of the British Museum CC-BY).
+Consequently, the record of the human interaction with these archives proves to be just as fascinating to study as the information actually contained in the records, as contributors to the field of history of archaeology can certainly attest to (for example, see Murray 2014).
