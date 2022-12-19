@@ -1,5 +1,7 @@
 # The Bronze Age Implement Index
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7456895.svg)](https://doi.org/10.5281/zenodo.7456895)
+
 ![The MicroPasts logo file](https://live.staticflickr.com/7452/12071276593_f35b8d8215_w.jpg)
 
 This repository contains the code for the website that provides an interface for the [MicroPasts](https://micropasts.org) generated Bronze Age Implement Index
