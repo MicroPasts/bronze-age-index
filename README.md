@@ -54,9 +54,18 @@ How to get this working on your machine.
     Set up search integration and then build
     ```shell
     touch .env.production
-    nano .env.production #set the environment variables for production SEARCH_URL='' and API_KEY='' and whether you want to inex on build INDEX='true/false'
+    nano .env.production #set the environment variables for production SEARCH_URL='' and API_KEY='' and whether you want to index on build INDEX='true/false'
     gatsby build
     ```
+
+    An example .env.production file looks like:
+
+    ```text
+    SEARCH_URL='https://your-search.url'
+    API_KEY='abcdefg'
+    INDEX=true
+    ```
+
 3.  **Test the site locally**
 
     ```shell
@@ -77,13 +86,38 @@ How to get this working on your machine.
     ```
     Deploy time is around 10-15 mins on a decent speed machine. If on an old mac, you may need to tune ulimit or just not bother...
 
+    You may need to clear the gh-pages cache to avoid the mega annoying _EMFILE: too many open files, open_ error (or change your maxfile limit). To do this run:
+
+    ```shell
+    node node_modules/gh-pages/bin/gh-pages-clean
+    npm run pages
+    ```
+
+## 🗂️ Some background to data wrangling
+
+The site is powered off two CSV files and a variety of markdown files for pages. The CSV files contain all the data that has been cleaned and enhanced from the Bronze Age Implement Index MicroPasts projects and from a data export from the Portable Antiquities Scheme.
+
+To speed up page creation on the system, I split the CSV file into smaller chunks. To do this, a python 3 file is included. If you are editing data, edit the CSV file at the root of data and then run these commands:
+
+    1. pas.csv has changed
+
+    ```shell
+    python3 split.py pas.csv split pas 500
+    ```
+
+    2. bai.csv has changed
+
+    ```shell
+    python3 split.py bai.csv split bai 500
+    ```
+
 ## 🧐 What's inside?
 
 A quick look at the top-level files and directories you'll see in a typical Gatsby project.
 
     .
     ├── node_modules
-    ├── src
+    ├── src   
     ├── .gitignore
     ├── gatsby-browser.js
     ├── gatsby-config.js
@@ -95,7 +129,7 @@ A quick look at the top-level files and directories you'll see in a typical Gats
 
 1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
-1.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+1.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”. This contains the data with CSV and markdown files that generate site pages and scripts for splitting the csv files.
 
 1.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
 
