@@ -48,6 +48,8 @@ const Object = props => {
                         <Metrics object={object}/>
                         <Who object={object}/>
                         <DiscoveryContexts object={object}/>
+                    </Container>
+                    <Container>
                         <ErrorReport object={object} />
                     </Container>
                 </Container>

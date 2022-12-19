@@ -10,7 +10,7 @@ const Combined = () => (
                 <StaticImage src={'../../images/loop.jpg'} className={'rounded-5 mx-4'} alt={'A Sussex Loop bracelet'}/>
             </Col>
             <Col md={6} className={"d-flex align-items-center justify-content-center p-2 my-2"}>
-                <Col md={8} className={"mx-auto align-middle"}>
+                <Col md={8} className={"mx-auto align-middle px-3"}>
                     <h1 className={"text-dark display-4 text-center fw-bolder"}>
                         Combined data
                     </h1>

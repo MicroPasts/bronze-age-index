@@ -30,7 +30,7 @@ const Journey = () => (
         <Container fluid className={'bg-white py-4'}>
         <Row className={'my-2'}>
         <Col md={6} className={"d-flex align-items-center justify-content-center"}>
-              <Col md={8} className={"mx-auto align-middle"}>
+              <Col md={8} className={"mx-auto align-middle px-3"}>
                 <p>
                     Funded by the Arts and Humanities Research Council, the project has now successfully
                     delivered a digital index of the National Bronze Age Implement Index, which is freely available to all, including
